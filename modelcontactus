@@ -1,0 +1,20 @@
+   public class contactus
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Firstname")]
+        public string Name { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Subject")]
+        public string Subject { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Message { get; set; }
+    }
