@@ -1,0 +1,6 @@
+//add DB connection 
+
+"AllowedHosts": "*",
+  "ConnectionStrings": {
+    "ApplicationDbContext": "Server=(localdb)\\mssqllocaldb;Database=Demo-App;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
