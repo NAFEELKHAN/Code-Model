@@ -1,0 +1,8 @@
+//APPLICATIONDB CONTEXT
+
+#region Pooling
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    : base(options)
+        {
+        }
+        #endregion
