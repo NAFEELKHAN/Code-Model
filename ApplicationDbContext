@@ -1,0 +1,12 @@
+//migration not added in the command line ApplicationDbCOntext File add
+
+//Make controller of model
+
+//Adding Statup.cs file this code  
+ 
+ public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+        }
