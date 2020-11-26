@@ -1,0 +1,5 @@
+//migration command keys
+
+add-migration Name_here
+
+update-database
