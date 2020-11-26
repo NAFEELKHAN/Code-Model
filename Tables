@@ -1,0 +1,7 @@
+//adding tables in ApplicationDBContext
+
+#region Tables
+        public DbSet<Comments> Comments { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        
+        #endregion
