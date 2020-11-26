@@ -1,0 +1,15 @@
+//adding date in ApplicationDbContext 
+//your need to add this code in file 
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Comments>()
+            .Property(b => b.AddedDate)
+            .HasDefaultValueSql("getdate()");
+
+            modelBuilder.Entity<Contact>()
+            .Property(b => b.AddedDate)
+            .HasDefaultValueSql("getdate()");
+        }
