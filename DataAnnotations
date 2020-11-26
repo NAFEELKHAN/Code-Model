@@ -1,0 +1,30 @@
+//Adding DataAnnotations for fields
+
+        [Key]
+        public int DataformId { get; set; }
+
+        [Required(ErrorMessage ="Please Enter Firstname")]
+        [Display(Name = "Firstname")]
+        [MaxLength(25), MinLength(4)]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage ="Please Enter Lastname")]
+        [Display(Name = "Lastname")]
+        [MaxLength(25),MinLength(5)]
+        public string Lastname { get; set; }
+
+        [Required(ErrorMessage ="Please Enter Email")]
+        [Display(Name = "Email")]
+        [MaxLength(35), MinLength(5)]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage ="Please Enter Age")]
+        [Display(Name ="Age")]
+        public int Age { get; set; }
+
+        [Required(ErrorMessage ="Please Enter Gender")]
+        [Display(Name ="Gender")]
+        [MaxLength(10), MinLength(5)]
+        public string Gender { get; set; }
