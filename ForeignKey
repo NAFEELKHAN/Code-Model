@@ -1,0 +1,48 @@
+ protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "School",
+                columns: table => new
+                {
+                    SchoolID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UniversityName = table.Column<string>(maxLength: 25, nullable: false),
+                    EnrollIn = table.Column<int>(maxLength: 25, nullable: false),
+                    PassingYear = table.Column<int>(nullable: false),
+                    CGPA = table.Column<int>(nullable: false),
+                    BioDataID = table.Column<int>(nullable: true),
+                    InquiryId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_School", x => x.SchoolID);
+                    table.ForeignKey(
+                        name: "FK_School_BioData_BioDataID",
+                        column: x => x.BioDataID,
+                        principalTable: "BioData",
+                        principalColumn: "BioDataID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_School_Inquiry_InquiryId",
+                        column: x => x.InquiryId,
+                        principalTable: "Inquiry",
+                        principalColumn: "InquiryId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_School_BioDataID",
+                table: "School",
+                column: "BioDataID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_School_InquiryId",
+                table: "School",
+                column: "InquiryId");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "School");
+        }
