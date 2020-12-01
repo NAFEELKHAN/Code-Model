@@ -1,0 +1,57 @@
+     public int BioDataID { get; set; }
+
+        [Display(Name = "Firstname")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Name is Required")]
+        public string First_name { get; set; }
+
+
+        [Display(Name = "Middlename")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Middle is Required")]
+        public string Middle_name { get; set; }
+
+        [Display(Name = "Lastname")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Last is Required")]
+        public string Last_name { get; set; }
+
+
+        [Display(Name = "Fathername")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Father is Required")]
+        public string Father_name { get; set; }
+
+
+        [Display(Name = "Male/Female")]
+        [MaxLength(25), MinLength(4)]
+        [Required(ErrorMessage = "Gender is Required")]
+        public string  Gender { get; set; }
+
+
+        [Display(Name = "Age")]
+        [Required(ErrorMessage = "Age is Required")]
+        public int Age { get; set; }
+
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Email Address is Required")]
+        [MaxLength(35), MinLength(5)]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
+        public  string Email { get; set; }
+
+        
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Set Password is Required")]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$")]
+        [MaxLength(35), MinLength(5)]
+        public string Password { get; set; }
+
+
+        //Default Date Picker
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)] //automated generated date
+        [Display(Name = "Added Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:T}")]
+        public DateTime AddedDate { get; set; }
