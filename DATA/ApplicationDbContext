@@ -1,0 +1,30 @@
+  public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+
+        #region Table
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<BioData> BioDatas { get; set; }
+        #endregion
+
+        #region Default Date
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>()
+            .Property(b => b.AddedDate)
+            .HasDefaultValueSql("getdate()");
+
+            modelBuilder.Entity<BioData>()
+           .Property(b => b.AddedDate)
+           .HasDefaultValueSql("getdate()");
+        }
+        #endregion
+    }
